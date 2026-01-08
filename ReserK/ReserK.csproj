@@ -9,6 +9,7 @@
     <SupportedOSPlatformVersion>8.0</SupportedOSPlatformVersion>
     <StartupObject>ReserK.Program</StartupObject>
     <ApplicationIcon>iconK.ico</ApplicationIcon>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
