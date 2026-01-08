@@ -83,11 +83,11 @@
             dataGridView_discharge = new DataGridView();
             label26 = new Label();
             label27 = new Label();
-            formsPlot1 = new ScottPlot.WinForms.FormsPlot();
-            formsPlot2 = new ScottPlot.WinForms.FormsPlot();
+            formsPlot_L = new ScottPlot.WinForms.FormsPlot();
+            formsPlot_Q = new ScottPlot.WinForms.FormsPlot();
             groupBox7 = new GroupBox();
-            label28 = new Label();
-            label29 = new Label();
+            Volume = new Label();
+            Elevation = new Label();
             groupBox1.SuspendLayout();
             toolStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -184,6 +184,7 @@
             SaveData_button.Name = "SaveData_button";
             SaveData_button.Size = new Size(29, 24);
             SaveData_button.Text = "toolStripButton1";
+            SaveData_button.Click += SaveData_button_Click;
             // 
             // OpenData_button
             // 
@@ -193,6 +194,7 @@
             OpenData_button.Name = "OpenData_button";
             OpenData_button.Size = new Size(29, 24);
             OpenData_button.Text = "toolStripButton2";
+            OpenData_button.Click += OpenData_button_Click;
             // 
             // Execute_button
             // 
@@ -202,6 +204,7 @@
             Execute_button.Name = "Execute_button";
             Execute_button.Size = new Size(29, 24);
             Execute_button.Text = "toolStripButton3";
+            Execute_button.Click += Execute_button_Click;
             // 
             // Help_button
             // 
@@ -221,6 +224,7 @@
             SaveResults_button.Name = "SaveResults_button";
             SaveResults_button.Size = new Size(29, 24);
             SaveResults_button.Text = "toolStripButton1";
+            SaveResults_button.Click += SaveResults_button_Click;
             // 
             // OpenData
             // 
@@ -592,26 +596,26 @@
             label27.TabIndex = 0;
             label27.Text = "Время, с";
             // 
-            // formsPlot1
+            // formsPlot_L
             // 
-            formsPlot1.DisplayScale = 1.25F;
-            formsPlot1.Location = new Point(307, 30);
-            formsPlot1.Name = "formsPlot1";
-            formsPlot1.Size = new Size(481, 292);
-            formsPlot1.TabIndex = 5;
+            formsPlot_L.DisplayScale = 1.25F;
+            formsPlot_L.Location = new Point(307, 30);
+            formsPlot_L.Name = "formsPlot_L";
+            formsPlot_L.Size = new Size(481, 292);
+            formsPlot_L.TabIndex = 5;
             // 
-            // formsPlot2
+            // formsPlot_Q
             // 
-            formsPlot2.DisplayScale = 1.25F;
-            formsPlot2.Location = new Point(307, 328);
-            formsPlot2.Name = "formsPlot2";
-            formsPlot2.Size = new Size(481, 283);
-            formsPlot2.TabIndex = 6;
+            formsPlot_Q.DisplayScale = 1.25F;
+            formsPlot_Q.Location = new Point(307, 328);
+            formsPlot_Q.Name = "formsPlot_Q";
+            formsPlot_Q.Size = new Size(481, 283);
+            formsPlot_Q.TabIndex = 6;
             // 
             // groupBox7
             // 
-            groupBox7.Controls.Add(label28);
-            groupBox7.Controls.Add(label29);
+            groupBox7.Controls.Add(Volume);
+            groupBox7.Controls.Add(Elevation);
             groupBox7.Location = new Point(613, 617);
             groupBox7.Name = "groupBox7";
             groupBox7.Size = new Size(175, 107);
@@ -619,23 +623,23 @@
             groupBox7.TabStop = false;
             groupBox7.Text = "Экстремумы";
             // 
-            // label28
+            // Volume
             // 
-            label28.AutoSize = true;
-            label28.Location = new Point(6, 71);
-            label28.Name = "label28";
-            label28.Size = new Size(92, 20);
-            label28.TabIndex = 1;
-            label28.Text = "Объем ВК: -";
+            Volume.AutoSize = true;
+            Volume.Location = new Point(6, 71);
+            Volume.Name = "Volume";
+            Volume.Size = new Size(92, 20);
+            Volume.TabIndex = 1;
+            Volume.Text = "Объем ВК: -";
             // 
-            // label29
+            // Elevation
             // 
-            label29.AutoSize = true;
-            label29.Location = new Point(6, 38);
-            label29.Name = "label29";
-            label29.Size = new Size(82, 20);
-            label29.TabIndex = 0;
-            label29.Text = "Уровень: -";
+            Elevation.AutoSize = true;
+            Elevation.Location = new Point(6, 38);
+            Elevation.Name = "Elevation";
+            Elevation.Size = new Size(82, 20);
+            Elevation.TabIndex = 0;
+            Elevation.Text = "Уровень: -";
             // 
             // Form1
             // 
@@ -643,8 +647,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 734);
             Controls.Add(groupBox7);
-            Controls.Add(formsPlot2);
-            Controls.Add(formsPlot1);
+            Controls.Add(formsPlot_Q);
+            Controls.Add(formsPlot_L);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);
             Controls.Add(groupBox2);
@@ -731,10 +735,10 @@
         private DataGridView dataGridView_discharge;
         private Label label26;
         private Label label27;
-        private ScottPlot.WinForms.FormsPlot formsPlot1;
-        private ScottPlot.WinForms.FormsPlot formsPlot2;
+        private ScottPlot.WinForms.FormsPlot formsPlot_L;
+        private ScottPlot.WinForms.FormsPlot formsPlot_Q;
         private GroupBox groupBox7;
-        private Label label28;
-        private Label label29;
+        private Label Volume;
+        private Label Elevation;
     }
 }
