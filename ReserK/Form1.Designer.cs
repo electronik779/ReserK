@@ -185,7 +185,7 @@
             SaveData_button.ImageTransparentColor = Color.Magenta;
             SaveData_button.Name = "SaveData_button";
             SaveData_button.Size = new Size(29, 24);
-            SaveData_button.Text = "toolStripButton1";
+            SaveData_button.Text = "Сохранить исходные данные";
             SaveData_button.Click += SaveData_button_Click;
             // 
             // OpenData_button
@@ -195,7 +195,7 @@
             OpenData_button.ImageTransparentColor = Color.Magenta;
             OpenData_button.Name = "OpenData_button";
             OpenData_button.Size = new Size(29, 24);
-            OpenData_button.Text = "toolStripButton2";
+            OpenData_button.Text = "Открыть исходные данные";
             OpenData_button.Click += OpenData_button_Click;
             // 
             // Execute_button
@@ -205,7 +205,7 @@
             Execute_button.ImageTransparentColor = Color.Magenta;
             Execute_button.Name = "Execute_button";
             Execute_button.Size = new Size(29, 24);
-            Execute_button.Text = "toolStripButton3";
+            Execute_button.Text = "Выполнить расчет";
             Execute_button.Click += Execute_button_Click;
             // 
             // Help_button
@@ -216,7 +216,7 @@
             Help_button.ImageTransparentColor = Color.Magenta;
             Help_button.Name = "Help_button";
             Help_button.Size = new Size(29, 24);
-            Help_button.Text = "toolStripButton4";
+            Help_button.Text = "ПАМАГИТЕ!!!";
             Help_button.Click += Help_button_Click;
             // 
             // SaveResults_button
@@ -226,7 +226,7 @@
             SaveResults_button.ImageTransparentColor = Color.Magenta;
             SaveResults_button.Name = "SaveResults_button";
             SaveResults_button.Size = new Size(29, 24);
-            SaveResults_button.Text = "toolStripButton1";
+            SaveResults_button.Text = "Сохранить результаты расчета";
             SaveResults_button.Click += SaveResults_button_Click;
             // 
             // OpenData
