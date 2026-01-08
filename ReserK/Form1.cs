@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReserK.Properties;
+using System;
 using System.Data;
 using System.Diagnostics;
 using System.Globalization;
@@ -12,7 +13,7 @@ namespace ReserK
         {
             InitializeComponent();
 
-            //this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
+            this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
 
             dataGridView_discharge.ColumnHeadersVisible = false;
             dataGridView_discharge.RowHeadersVisible = false;
@@ -52,7 +53,7 @@ namespace ReserK
             SaveResults.DefaultExt = "csv";
             SaveResults.AddExtension = true;
 
-            //this.FormClosing += (sender, e) => { TryDeleteFile(tempFilePath); };
+            this.FormClosing += (sender, e) => { TryDeleteFile(tempFilePath); };
 
         }
 
@@ -122,17 +123,17 @@ namespace ReserK
             try { kr = GetDecimal(krt.Text, 0m); }
             catch { ErrorMsg(krt, "коэффициент дополнительного сопротивления"); }
             try { Zvod = GetDecimal(Zvodt.Text, 0m); }
-            catch { ErrorMsg(krt, "отметку водослива"); }
+            catch { ErrorMsg(Zvodt, "отметку водослива"); }
             try { Bvod = GetDecimal(Bvodt.Text, 0m); }
-            catch { ErrorMsg(krt, "длину водослива"); }
+            catch { ErrorMsg(Bvodt, "длину водослива"); }
             try { mvod = GetDecimal(mvodt.Text, 0m); }
-            catch { ErrorMsg(krt, "коэффициент расхода водослива"); }
+            catch { ErrorMsg(mvodt, "коэффициент расхода водослива"); }
             try { Zvnk = GetDecimal(Zvnkt.Text, 0m); }
-            catch { ErrorMsg(krt, "отметку верха нижней камеры"); }
+            catch { ErrorMsg(Zvnkt, "отметку верха нижней камеры"); }
             try { Znnk = GetDecimal(Znnkt.Text, 0m); }
-            catch { ErrorMsg(krt, "отметку низа нижней камеры"); }
+            catch { ErrorMsg(Znnkt, "отметку низа нижней камеры"); }
             try { Fnk = GetDecimal(Fnkt.Text, 0m); }
-            catch { ErrorMsg(krt, "площадь нижней камеры"); }
+            catch { ErrorMsg(Fnkt, "площадь нижней камеры"); }
             try { dt = GetDecimal(dtt.Text, 0m); }
             catch { ErrorMsg(dtt, "шаг расчета"); }
             try { Tras = GetDecimal(Trast.Text, 0m); }
@@ -380,7 +381,8 @@ namespace ReserK
                 //Then in neutral language
                 !decimal.TryParse(str, NumberStyles.Any, CultureInfo.InvariantCulture, out result))
             {
-                //result = defaultValue;
+                result = defaultValue;
+                throw new ArgumentNullException();
             }
 
             return result;
@@ -571,6 +573,111 @@ namespace ReserK
                 }
             }
 
+        }
+
+        private void Ldt_TextChanged(object sender, EventArgs e)
+        {
+            if (Ldt.BackColor == Color.Red) { Ldt.BackColor = SystemColors.Window; }
+        }
+
+        private void Fdt_TextChanged(object sender, EventArgs e)
+        {
+            if (Fdt.BackColor == Color.Red) { Fdt.BackColor = SystemColors.Window; }
+        }
+
+        private void Frt_TextChanged(object sender, EventArgs e)
+        {
+            if (Frt.BackColor == Color.Red) { Frt.BackColor = SystemColors.Window; }
+        }
+
+        private void knt_TextChanged(object sender, EventArgs e)
+        {
+            if (knt.BackColor == Color.Red) { knt.BackColor = SystemColors.Window; }
+        }
+
+        private void krt_TextChanged(object sender, EventArgs e)
+        {
+            if (krt.BackColor == Color.Red) { krt.BackColor = SystemColors.Window; }
+        }
+
+        private void Zvodt_TextChanged(object sender, EventArgs e)
+        {
+            if (Zvodt.BackColor == Color.Red) { Zvodt.BackColor = SystemColors.Window; }
+        }
+
+        private void Bvodt_TextChanged(object sender, EventArgs e)
+        {
+            if (Bvodt.BackColor == Color.Red) { Bvodt.BackColor = SystemColors.Window; }
+        }
+
+        private void mvodt_TextChanged(object sender, EventArgs e)
+        {
+            if (mvodt.BackColor == Color.Red) { mvodt.BackColor = SystemColors.Window; }
+        }
+
+        private void Zvnkt_TextChanged(object sender, EventArgs e)
+        {
+            if (Zvnkt.BackColor == Color.Red) { Zvnkt.BackColor = SystemColors.Window; }
+        }
+
+        private void Znnkt_TextChanged(object sender, EventArgs e)
+        {
+            if (Znnkt.BackColor == Color.Red) { Znnkt.BackColor = SystemColors.Window; }
+        }
+
+        private void Fnkt_TextChanged(object sender, EventArgs e)
+        {
+            if (Fnkt.BackColor == Color.Red) { Fnkt.BackColor = SystemColors.Window; }
+        }
+
+        private void dtt_TextChanged(object sender, EventArgs e)
+        {
+            if (dtt.BackColor == Color.Red) { dtt.BackColor = SystemColors.Window; }
+        }
+
+        private void Trast_TextChanged(object sender, EventArgs e)
+        {
+            if (Trast.BackColor == Color.Red) { Trast.BackColor = SystemColors.Window; }
+        }
+
+        private static void TryDeleteFile(string path)
+        {
+            try
+            {
+                if (File.Exists(path))
+                    File.Delete(path);
+            }
+            catch { /* Игнорируем ошибки удаления */ }
+        }
+
+        private void Form1_FormClosed(object sender, EventArgs e)
+        {
+            TryDeleteFile(tempFilePath);
+        }
+
+        private void Help_button_Click(object sender, EventArgs e)
+        {
+            byte[] fileData = Resources.ReserK_help;
+
+            try
+            {
+                // Сохранение ресурса во временный файл
+                File.WriteAllBytes(tempFilePath, fileData);
+
+                // Запуск приложения по умолчанию
+                ProcessStartInfo startInfo = new ProcessStartInfo()
+                {
+                    FileName = tempFilePath,
+                    UseShellExecute = true // Ключевой параметр для использования ассоциаций ОС
+                };
+                Process.Start(startInfo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка открытия справки: {ex.Message}");
+                // Удаление файла в случае ошибки
+                TryDeleteFile(tempFilePath);
+            }
         }
     }
 }

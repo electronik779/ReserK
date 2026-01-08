@@ -139,6 +139,7 @@
             Fdt.Size = new Size(56, 27);
             Fdt.TabIndex = 2;
             Fdt.TextAlign = HorizontalAlignment.Right;
+            Fdt.TextChanged += Fdt_TextChanged;
             // 
             // Ldt
             // 
@@ -147,6 +148,7 @@
             Ldt.Size = new Size(56, 27);
             Ldt.TabIndex = 1;
             Ldt.TextAlign = HorizontalAlignment.Right;
+            Ldt.TextChanged += Ldt_TextChanged;
             // 
             // label2
             // 
@@ -215,6 +217,7 @@
             Help_button.Name = "Help_button";
             Help_button.Size = new Size(29, 24);
             Help_button.Text = "toolStripButton4";
+            Help_button.Click += Help_button_Click;
             // 
             // SaveResults_button
             // 
@@ -282,6 +285,7 @@
             Fnkt.Size = new Size(56, 27);
             Fnkt.TabIndex = 11;
             Fnkt.TextAlign = HorizontalAlignment.Right;
+            Fnkt.TextChanged += Fnkt_TextChanged;
             // 
             // label14
             // 
@@ -308,6 +312,7 @@
             Znnkt.Size = new Size(56, 27);
             Znnkt.TabIndex = 10;
             Znnkt.TextAlign = HorizontalAlignment.Right;
+            Znnkt.TextChanged += Znnkt_TextChanged;
             // 
             // label16
             // 
@@ -334,6 +339,7 @@
             Zvnkt.Size = new Size(56, 27);
             Zvnkt.TabIndex = 9;
             Zvnkt.TextAlign = HorizontalAlignment.Right;
+            Zvnkt.TextChanged += Zvnkt_TextChanged;
             // 
             // label18
             // 
@@ -368,6 +374,7 @@
             mvodt.Size = new Size(56, 27);
             mvodt.TabIndex = 8;
             mvodt.TextAlign = HorizontalAlignment.Right;
+            mvodt.TextChanged += mvodt_TextChanged;
             // 
             // label13
             // 
@@ -394,6 +401,7 @@
             Bvodt.Size = new Size(56, 27);
             Bvodt.TabIndex = 7;
             Bvodt.TextAlign = HorizontalAlignment.Right;
+            Bvodt.TextChanged += Bvodt_TextChanged;
             // 
             // Bvod
             // 
@@ -420,6 +428,7 @@
             Zvodt.Size = new Size(56, 27);
             Zvodt.TabIndex = 6;
             Zvodt.TextAlign = HorizontalAlignment.Right;
+            Zvodt.TextChanged += Zvodt_TextChanged;
             // 
             // label10
             // 
@@ -437,6 +446,7 @@
             krt.Size = new Size(56, 27);
             krt.TabIndex = 5;
             krt.TextAlign = HorizontalAlignment.Right;
+            krt.TextChanged += krt_TextChanged;
             // 
             // label5
             // 
@@ -463,6 +473,7 @@
             knt.Size = new Size(56, 27);
             knt.TabIndex = 4;
             knt.TextAlign = HorizontalAlignment.Right;
+            knt.TextChanged += knt_TextChanged;
             // 
             // Frt
             // 
@@ -471,6 +482,7 @@
             Frt.Size = new Size(56, 27);
             Frt.TabIndex = 3;
             Frt.TextAlign = HorizontalAlignment.Right;
+            Frt.TextChanged += Frt_TextChanged;
             // 
             // label7
             // 
@@ -530,6 +542,7 @@
             Trast.Size = new Size(56, 27);
             Trast.TabIndex = 13;
             Trast.TextAlign = HorizontalAlignment.Right;
+            Trast.TextChanged += Trast_TextChanged;
             // 
             // dtt
             // 
@@ -538,6 +551,7 @@
             dtt.Size = new Size(56, 27);
             dtt.TabIndex = 12;
             dtt.TextAlign = HorizontalAlignment.Right;
+            dtt.TextChanged += dtt_TextChanged;
             // 
             // label22
             // 
