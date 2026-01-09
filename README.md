@@ -16,7 +16,7 @@
 
 ## Для Windows
 
-Установка не требуется. Для Windows x64 скачайте "свежий" релиз [Windows-x64-ReserK.zip](https://github.com/electronik779/ReserK/releases), распакуйте в любую удобную для вас папку и запустите исполняемый файл (Reser.exe).
+Установка не требуется. Для Windows x64 скачайте "свежий" релиз [Windows-x64-ReserK.zip](https://github.com/electronik779/ReserK/releases), распакуйте в любую удобную для вас папку и запустите исполняемый файл (ReserK.exe).
 
 ## Для остальных ОС
 
