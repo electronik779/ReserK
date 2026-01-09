@@ -68,9 +68,7 @@
             krt = new TextBox();
             label5 = new Label();
             label6 = new Label();
-            knt = new TextBox();
             Frt = new TextBox();
-            label7 = new Label();
             label8 = new Label();
             groupBox5 = new GroupBox();
             label20 = new Label();
@@ -88,6 +86,8 @@
             groupBox7 = new GroupBox();
             Volume = new Label();
             Elevation = new Label();
+            knt = new TextBox();
+            label7 = new Label();
             groupBox1.SuspendLayout();
             toolStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -101,6 +101,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(knt);
+            groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(Fdt);
@@ -109,7 +111,7 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 28);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(289, 107);
+            groupBox1.Size = new Size(289, 149);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Деривация";
@@ -240,13 +242,11 @@
             groupBox2.Controls.Add(krt);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(knt);
             groupBox2.Controls.Add(Frt);
-            groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label8);
-            groupBox2.Location = new Point(12, 141);
+            groupBox2.Location = new Point(12, 183);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(289, 470);
+            groupBox2.Size = new Size(289, 428);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Резервуар";
@@ -262,7 +262,7 @@
             groupBox4.Controls.Add(label17);
             groupBox4.Controls.Add(Zvnkt);
             groupBox4.Controls.Add(label18);
-            groupBox4.Location = new Point(6, 337);
+            groupBox4.Location = new Point(6, 293);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(277, 127);
             groupBox4.TabIndex = 8;
@@ -360,7 +360,7 @@
             groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(Zvodt);
             groupBox3.Controls.Add(label10);
-            groupBox3.Location = new Point(6, 187);
+            groupBox3.Location = new Point(6, 143);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(277, 144);
             groupBox3.TabIndex = 7;
@@ -441,7 +441,7 @@
             // 
             // krt
             // 
-            krt.Location = new Point(194, 154);
+            krt.Location = new Point(194, 110);
             krt.Name = "krt";
             krt.Size = new Size(56, 27);
             krt.TabIndex = 5;
@@ -451,7 +451,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 116);
+            label5.Location = new Point(6, 72);
             label5.Name = "label5";
             label5.Size = new Size(133, 80);
             label5.TabIndex = 5;
@@ -466,15 +466,6 @@
             label6.TabIndex = 4;
             label6.Text = "м²";
             // 
-            // knt
-            // 
-            knt.Location = new Point(194, 84);
-            knt.Name = "knt";
-            knt.Size = new Size(56, 27);
-            knt.TabIndex = 4;
-            knt.TextAlign = HorizontalAlignment.Right;
-            knt.TextChanged += knt_TextChanged;
-            // 
             // Frt
             // 
             Frt.Location = new Point(194, 35);
@@ -483,15 +474,6 @@
             Frt.TabIndex = 3;
             Frt.TextAlign = HorizontalAlignment.Right;
             Frt.TextChanged += Frt_TextChanged;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(6, 71);
-            label7.Name = "label7";
-            label7.Size = new Size(128, 40);
-            label7.TabIndex = 1;
-            label7.Text = "Коэффициент\r\nшероховатости n";
             // 
             // label8
             // 
@@ -655,6 +637,23 @@
             Elevation.TabIndex = 0;
             Elevation.Text = "Уровень: -";
             // 
+            // knt
+            // 
+            knt.Location = new Point(194, 111);
+            knt.Name = "knt";
+            knt.Size = new Size(56, 27);
+            knt.TabIndex = 7;
+            knt.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(6, 98);
+            label7.Name = "label7";
+            label7.Size = new Size(128, 40);
+            label7.TabIndex = 6;
+            label7.Text = "Коэффициент\r\nшероховатости n";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -710,9 +709,7 @@
         private TextBox krt;
         private Label label5;
         private Label label6;
-        private TextBox knt;
         private TextBox Frt;
-        private Label label7;
         private Label label8;
         private GroupBox groupBox3;
         private Label label9;
@@ -754,5 +751,7 @@
         private GroupBox groupBox7;
         private Label Volume;
         private Label Elevation;
+        private TextBox knt;
+        private Label label7;
     }
 }

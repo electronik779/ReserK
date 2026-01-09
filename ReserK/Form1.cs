@@ -436,17 +436,18 @@ namespace ReserK
                 List<string> block5 = new List<string>();
                 List<string> block6 = new List<string>();
 
-                block1.Add(Frt.Text);
+                block1.Add(Ldt.Text);
+                block1.Add(Fdt.Text);
                 block1.Add(knt.Text);
-                block1.Add(krt.Text);
-                block2.Add(Zvodt.Text);
-                block2.Add(Bvodt.Text);
-                block2.Add(mvodt.Text);
-                block3.Add(Zvnkt.Text);
-                block3.Add(Znnkt.Text);
-                block3.Add(Fnkt.Text);
-                block4.Add(Ldt.Text);
-                block4.Add(Fdt.Text);
+                block2.Add(Frt.Text);
+                block2.Add(krt.Text);
+                block3.Add(Zvodt.Text);
+                block3.Add(Bvodt.Text);
+                block3.Add(mvodt.Text);
+                block4.Add(Zvnkt.Text);
+                block4.Add(Znnkt.Text);
+                block4.Add(Fnkt.Text);
+                
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -491,26 +492,27 @@ namespace ReserK
                     }
                 }
 
-                List<string> block1 = blocks.ElementAtOrDefault(0);
-                List<string> block2 = blocks.ElementAtOrDefault(1);
-                List<string> block3 = blocks.ElementAtOrDefault(2);
-                List<string> block4 = blocks.ElementAtOrDefault(3);
-                List<string> block5 = blocks.ElementAtOrDefault(4);
-                List<string> block6 = blocks.ElementAtOrDefault(5);
+                List<string>? block1 = blocks.ElementAtOrDefault(0);
+                List<string>? block2 = blocks.ElementAtOrDefault(1);
+                List<string>? block3 = blocks.ElementAtOrDefault(2);
+                List<string>? block4 = blocks.ElementAtOrDefault(3);
+                List<string>? block5 = blocks.ElementAtOrDefault(4);
+                List<string>? block6 = blocks.ElementAtOrDefault(5);
 
                 try
                 {
-                    Frt.Text = block1?.ElementAtOrDefault(0) ?? string.Empty;
-                    knt.Text = block1?.ElementAtOrDefault(1) ?? string.Empty;
-                    krt.Text = block1?.ElementAtOrDefault(2) ?? string.Empty;
-                    Zvodt.Text = block2?.ElementAtOrDefault(0) ?? string.Empty;
-                    Bvodt.Text = block2?.ElementAtOrDefault(1) ?? string.Empty;
-                    mvodt.Text = block2?.ElementAtOrDefault(2) ?? string.Empty;
-                    Zvnkt.Text = block3?.ElementAtOrDefault(0) ?? string.Empty;
-                    Znnkt.Text = block3?.ElementAtOrDefault(1) ?? string.Empty;
-                    Fnkt.Text = block3?.ElementAtOrDefault(2) ?? string.Empty;
-                    Ldt.Text = block4?.ElementAtOrDefault(0) ?? string.Empty;
-                    Fdt.Text = block4?.ElementAtOrDefault(1) ?? string.Empty;
+                    Ldt.Text = block1?.ElementAtOrDefault(0) ?? string.Empty;
+                    Fdt.Text = block1?.ElementAtOrDefault(1) ?? string.Empty;
+                    knt.Text = block1?.ElementAtOrDefault(2) ?? string.Empty;
+                    Frt.Text = block2?.ElementAtOrDefault(0) ?? string.Empty;
+                    krt.Text = block2?.ElementAtOrDefault(1) ?? string.Empty;
+                    Zvodt.Text = block3?.ElementAtOrDefault(0) ?? string.Empty;
+                    Bvodt.Text = block3?.ElementAtOrDefault(1) ?? string.Empty;
+                    mvodt.Text = block3?.ElementAtOrDefault(2) ?? string.Empty;
+                    Zvnkt.Text = block4?.ElementAtOrDefault(0) ?? string.Empty;
+                    Znnkt.Text = block4?.ElementAtOrDefault(1) ?? string.Empty;
+                    Fnkt.Text = block4?.ElementAtOrDefault(2) ?? string.Empty;
+                    
 
                     for (int i = 0; i < 3; i++)
                     {
