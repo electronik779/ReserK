@@ -1,9 +1,7 @@
 ﻿using ReserK.Properties;
-using System;
 using System.Data;
 using System.Diagnostics;
 using System.Globalization;
-using System.Windows.Forms;
 
 namespace ReserK
 {
@@ -12,8 +10,6 @@ namespace ReserK
         public Form1()
         {
             InitializeComponent();
-
-            this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
 
             dataGridView_discharge.ColumnHeadersVisible = false;
             dataGridView_discharge.RowHeadersVisible = false;
@@ -447,7 +443,7 @@ namespace ReserK
                 block4.Add(Zvnkt.Text);
                 block4.Add(Znnkt.Text);
                 block4.Add(Fnkt.Text);
-                
+
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -475,7 +471,7 @@ namespace ReserK
 
         private void OpenData_button_Click(object sender, EventArgs e)
         {
-            if (OpenData.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (OpenData.ShowDialog() == DialogResult.OK)
             {
                 // получаем выбранный файл
                 string filename = OpenData.FileName;
@@ -512,7 +508,7 @@ namespace ReserK
                     Zvnkt.Text = block4?.ElementAtOrDefault(0) ?? string.Empty;
                     Znnkt.Text = block4?.ElementAtOrDefault(1) ?? string.Empty;
                     Fnkt.Text = block4?.ElementAtOrDefault(2) ?? string.Empty;
-                    
+
 
                     for (int i = 0; i < 3; i++)
                     {
@@ -650,11 +646,6 @@ namespace ReserK
                     File.Delete(path);
             }
             catch { /* Игнорируем ошибки удаления */ }
-        }
-
-        private void Form1_FormClosed(object sender, EventArgs e)
-        {
-            TryDeleteFile(tempFilePath);
         }
 
         private void Help_button_Click(object sender, EventArgs e)
