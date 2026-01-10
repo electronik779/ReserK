@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             groupBox1 = new GroupBox();
+            knt = new TextBox();
+            label7 = new Label();
             label4 = new Label();
             label3 = new Label();
             Fdt = new TextBox();
@@ -86,8 +88,6 @@
             groupBox7 = new GroupBox();
             Volume = new Label();
             Elevation = new Label();
-            knt = new TextBox();
-            label7 = new Label();
             groupBox1.SuspendLayout();
             toolStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -115,6 +115,23 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Деривация";
+            // 
+            // knt
+            // 
+            knt.Location = new Point(194, 111);
+            knt.Name = "knt";
+            knt.Size = new Size(56, 27);
+            knt.TabIndex = 3;
+            knt.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(6, 98);
+            label7.Name = "label7";
+            label7.Size = new Size(128, 40);
+            label7.TabIndex = 6;
+            label7.Text = "Коэффициент\r\nшероховатости n";
             // 
             // label4
             // 
@@ -471,7 +488,7 @@
             Frt.Location = new Point(194, 35);
             Frt.Name = "Frt";
             Frt.Size = new Size(56, 27);
-            Frt.TabIndex = 3;
+            Frt.TabIndex = 4;
             Frt.TextAlign = HorizontalAlignment.Right;
             Frt.TextChanged += Frt_TextChanged;
             // 
@@ -636,23 +653,6 @@
             Elevation.Size = new Size(82, 20);
             Elevation.TabIndex = 0;
             Elevation.Text = "Уровень: -";
-            // 
-            // knt
-            // 
-            knt.Location = new Point(194, 111);
-            knt.Name = "knt";
-            knt.Size = new Size(56, 27);
-            knt.TabIndex = 7;
-            knt.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(6, 98);
-            label7.Name = "label7";
-            label7.Size = new Size(128, 40);
-            label7.TabIndex = 6;
-            label7.Text = "Коэффициент\r\nшероховатости n";
             // 
             // Form1
             // 
