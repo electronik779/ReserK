@@ -318,50 +318,20 @@ namespace ReserK
                     DataY1[i] = (double)Table[i, 6];
                     DataY2[i] = (double)Table[i, 7];
                 }
-                var z = formsPlot_L.Plot.Add.Scatter(DataX, DataY1);
-                var hd = formsPlot_L.Plot.Add.Scatter(DataX, DataY2);
-                z.LegendText = "Уровень в УР, Z";
-                hd.LegendText = "Давление в деривации, Нд";
-                z.MarkerSize = 0;
-                hd.MarkerSize = 0;
-                z.LineWidth = 2;
-                hd.LineWidth = 2;
-
-                ScottPlot.Color semitransparent = ScottPlot.Colors.White.WithAlpha(0.3);
-
-                formsPlot_L.Plot.Axes.SetLimitsX(0, Ttmp);
-                formsPlot_L.Plot.Axes.SetLimitsY(Lmin, Lmax);
-                formsPlot_L.Plot.Axes.Left.Label.Text = "м";
-                formsPlot_L.Plot.Axes.Left.Label.Bold = false;
-                formsPlot_L.Plot.Axes.Bottom.Label.Text = "Время, с";
-                formsPlot_L.Plot.Axes.Bottom.Label.Bold = false;
-                formsPlot_L.Plot.Legend.BackgroundColor = semitransparent;
-                formsPlot_L.Plot.ShowLegend(ScottPlot.Alignment.LowerRight, ScottPlot.Orientation.Vertical);
-                formsPlot_L.Refresh();
+                BuildChart_2lines(formsPlot_L, DataX, DataY1, DataY2,
+                    "Уровень в УР, Z", "Давление в деривации, Нд", 2, 0,
+                    "Время, с", 0, Ttmp,
+                    "м", Lmin, Lmax);
 
                 for (int i = 0; i < count; i++)
                 {
                     DataY1[i] = (double)Table[i, 2];
                     DataY2[i] = (double)Table[i, 1];
                 }
-                var qd = formsPlot_Q.Plot.Add.Scatter(DataX, DataY1);
-                var qt = formsPlot_Q.Plot.Add.Scatter(DataX, DataY2);
-                qd.LegendText = "Расход деривации, Qд";
-                qt.LegendText = "Расход турбинных водоводов, Qт";
-                qd.MarkerSize = 0;
-                qt.MarkerSize = 0;
-                qd.LineWidth = 2;
-                qt.LineWidth = 2;
-
-                formsPlot_Q.Plot.Axes.SetLimitsX(0, Ttmp);
-                formsPlot_Q.Plot.Axes.SetLimitsY(Qmin, Qmax);
-                formsPlot_Q.Plot.Axes.Left.Label.Text = "м³/c";
-                formsPlot_Q.Plot.Axes.Left.Label.Bold = false;
-                formsPlot_Q.Plot.Axes.Bottom.Label.Text = "Время, с";
-                formsPlot_Q.Plot.Axes.Bottom.Label.Bold = false;
-                formsPlot_Q.Plot.Legend.BackgroundColor = semitransparent;
-                formsPlot_Q.Plot.ShowLegend(ScottPlot.Alignment.LowerRight, ScottPlot.Orientation.Vertical);
-                formsPlot_Q.Refresh();
+                BuildChart_2lines(formsPlot_Q, DataX, DataY1, DataY2,
+                    "Расход деривации, Qд", "Расход турбинных водоводов, Qт", 2, 0,
+                    "Время, с", 0, Ttmp,
+                    "м³/c", Qmin, Qmax);
             }
             catch
             {
@@ -370,6 +340,36 @@ namespace ReserK
                     MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             }
         }
+
+        private void BuildChart_2lines(ScottPlot.WinForms.FormsPlot chartName,
+            double[] dataX, double[] dataY1, double[] dataY2,
+            string line1_Name, string line2_Name,
+            float lineWidth, float markerSize,
+            string axisX_Name, double minX, double maxX,
+            string axisY_Name, double minY, double maxY)
+        {
+            ScottPlot.Color semitransparent = ScottPlot.Colors.White.WithAlpha(0.3);
+            chartName.Plot.Axes.SetLimitsX(minX, maxX);
+            chartName.Plot.Axes.SetLimitsY(minY, maxY);
+            chartName.Plot.Axes.Left.Label.Text = axisY_Name;
+            chartName.Plot.Axes.Left.Label.Bold = false;
+            chartName.Plot.Axes.Bottom.Label.Text = axisX_Name;
+            chartName.Plot.Axes.Bottom.Label.Bold = false;
+            chartName.Plot.Legend.BackgroundColor = semitransparent;
+            chartName.Plot.ShowLegend(ScottPlot.Alignment.LowerRight, ScottPlot.Orientation.Vertical);
+
+            var line1 = chartName.Plot.Add.Scatter(dataX, dataY1);
+            var line2 = chartName.Plot.Add.Scatter(dataX, dataY2);
+            line1.LegendText = line1_Name;
+            line2.LegendText = line2_Name;
+            line1.MarkerSize = markerSize;
+            line2.MarkerSize = markerSize;
+            line1.LineWidth = lineWidth;
+            line2.LineWidth = lineWidth;
+            chartName.Refresh();
+        }
+
+
 
         private decimal GetDecimal(string str, decimal defaultValue)
         {
