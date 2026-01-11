@@ -58,9 +58,9 @@ namespace ReserK
                 Guid.NewGuid().ToString() + ".pdf");
 
 
-        decimal[,] Table = new decimal[32768, 9];
+        double[,] Table = new double[32768, 9];
 
-        decimal t2 = 0;
+        double t2 = 0;
 
         int count;
 
@@ -74,73 +74,73 @@ namespace ReserK
 
             int IK = 6;
 
-            decimal[] UT = new decimal[6];
-            decimal[] UQST = new decimal[6];
+            double[] UT = new double[6];
+            double[] UQST = new double[6];
 
-            decimal Ld = 0;
-            decimal Fd = 0;
-            decimal Fr = 0;
-            decimal kn = 0;
-            decimal kr = 0;
-            decimal dt = 0;
-            decimal Zvod = 0;
-            decimal Bvod = 0;
-            decimal mvod = 0;
-            decimal Zvnk = 0;
-            decimal Znnk = 0;
-            decimal Fnk = 0;
-            decimal Tras = 0;
-            decimal kwd;
-            decimal kwr;
-            decimal Dd;
-            decimal R;
-            decimal Qst;
-            decimal Qd;
-            decimal Qr;
-            decimal Hwd;
-            decimal Hwr;
-            decimal Z;
-            decimal Hd;
-            decimal Shesi;
-            decimal Wwk = 0;
-            decimal LevelMax = 0;
-            decimal LevelMin = 0;
-            decimal W = 0;
-            decimal T = 0;
+            double Ld = 0;
+            double Fd = 0;
+            double Fr = 0;
+            double kn = 0;
+            double kr = 0;
+            double dt = 0;
+            double Zvod = 0;
+            double Bvod = 0;
+            double mvod = 0;
+            double Zvnk = 0;
+            double Znnk = 0;
+            double Fnk = 0;
+            double Tras = 0;
+            double kwd;
+            double kwr;
+            double Dd;
+            double R;
+            double Qst;
+            double Qd;
+            double Qr;
+            double Hwd;
+            double Hwr;
+            double Z;
+            double Hd;
+            double Shesi;
+            double Wwk = 0;
+            double LevelMax = 0;
+            double LevelMin = 0;
+            double W = 0;
+            double T = 0;
 
-            try { Ld = GetDecimal(Ldt.Text, 0m); }
+            try { Ld = GetDouble(Ldt.Text, 0); }
             catch { ErrorMsg(Ldt, "длину деривации"); }
-            try { Fd = GetDecimal(Fdt.Text, 0m); }
+            try { Fd = GetDouble(Fdt.Text, 0); }
             catch { ErrorMsg(Fdt, "площадь деривации"); }
-            try { Fr = GetDecimal(Frt.Text, 0m); }
+            try { Fr = GetDouble(Frt.Text, 0); }
             catch { ErrorMsg(Frt, "площадь резервуара"); }
-            try { kn = GetDecimal(knt.Text, 0m); }
+            try { kn = GetDouble(knt.Text, 0); }
             catch { ErrorMsg(knt, "коэффициент шероховатости"); }
-            try { kr = GetDecimal(krt.Text, 0m); }
+            try { kr = GetDouble(krt.Text, 0); }
             catch { ErrorMsg(krt, "коэффициент дополнительного сопротивления"); }
-            try { Zvod = GetDecimal(Zvodt.Text, 0m); }
+            try { Zvod = GetDouble(Zvodt.Text, 0); }
             catch { ErrorMsg(Zvodt, "отметку водослива"); }
-            try { Bvod = GetDecimal(Bvodt.Text, 0m); }
+            try { Bvod = GetDouble(Bvodt.Text, 0); }
             catch { ErrorMsg(Bvodt, "длину водослива"); }
-            try { mvod = GetDecimal(mvodt.Text, 0m); }
+            try { mvod = GetDouble(mvodt.Text, 0); }
             catch { ErrorMsg(mvodt, "коэффициент расхода водослива"); }
-            try { Zvnk = GetDecimal(Zvnkt.Text, 0m); }
+            try { Zvnk = GetDouble(Zvnkt.Text, 0); }
             catch { ErrorMsg(Zvnkt, "отметку верха нижней камеры"); }
-            try { Znnk = GetDecimal(Znnkt.Text, 0m); }
+            try { Znnk = GetDouble(Znnkt.Text, 0); }
             catch { ErrorMsg(Znnkt, "отметку низа нижней камеры"); }
-            try { Fnk = GetDecimal(Fnkt.Text, 0m); }
+            try { Fnk = GetDouble(Fnkt.Text, 0); }
             catch { ErrorMsg(Fnkt, "площадь нижней камеры"); }
-            try { dt = GetDecimal(dtt.Text, 0m); }
+            try { dt = GetDouble(dtt.Text, 0); }
             catch { ErrorMsg(dtt, "шаг расчета"); }
-            try { Tras = GetDecimal(Trast.Text, 0m); }
+            try { Tras = GetDouble(Trast.Text, 0); }
             catch { ErrorMsg(Trast, "время расчета"); }
 
             for (int i = 0; i < 3; i++)
             {
                 try
                 {
-                    UT[i] = GetDecimal((string)dataGridView_discharge.Rows[0].Cells[i].Value, 0m);
-                    UQST[i] = GetDecimal((string)dataGridView_discharge.Rows[1].Cells[i].Value, 0m);
+                    UT[i] = GetDouble((string)dataGridView_discharge.Rows[0].Cells[i].Value, 0);
+                    UQST[i] = GetDouble((string)dataGridView_discharge.Rows[1].Cells[i].Value, 0);
                 }
                 catch
                 {
@@ -164,22 +164,21 @@ namespace ReserK
 
             try
             {
-                Dd = (decimal)Math.Pow(4 * (double)Fd / 3.1415, 0.5);
+                Dd = Math.Pow(4 * Fd / 3.1415, 0.5);
                 R = Dd / 4;
                 if (kn > 0)
                 {
-                    Shesi = 1 / kn * (decimal)Math.Pow((double)R, 1 / 6);
-                    kwd = Ld / ((decimal)Math.Pow((double)Shesi, 2) * R * (decimal)Math.Pow((double)Fd, 2));
+                    Shesi = 1 / kn * Math.Pow(R, 1 / 6);
+                    kwd = Ld / (Math.Pow(Shesi, 2) * R * Math.Pow(Fd, 2));
                 }
                 else { kwd = 0; }
 
-                kwr = kr / ((decimal)19.62 * (decimal)Math.Pow((double)Fd, 2));
+                kwr = kr / (19.62 * Math.Pow(Fd, 2));
 
                 Qst = Int11(T, IK, UT, UQST);
                 Qd = Qst;
                 Qr = 0;
-                Hwd = kwd * Qd * Math.Abs(Qd) + (decimal)Math.Pow((double)Qd, 2) /
-                    ((decimal)19.62 * (decimal)Math.Pow((double)Fd, 2));
+                Hwd = kwd * Qd * Math.Abs(Qd) + Math.Pow(Qd, 2) / (19.62 * Math.Pow(Fd, 2));
                 Hwr = 0;
                 Z = -Hwd;
                 Hd = Z;
@@ -194,8 +193,8 @@ namespace ReserK
                 Table[0, 7] = Hd;
                 Table[0, 8] = Wwk;
 
-                decimal[] UZ = new decimal[4] { Z, Zvnk, Znnk, -100 };
-                decimal[] UW = new decimal[4] { 0, Fr * (Z - Zvnk),
+                double[] UZ = new double[4] { Z, Zvnk, Znnk, -100 };
+                double[] UW = new double[4] { 0, Fr * (Z - Zvnk),
                     Fr * (Z - Zvnk) + Fnk * (Zvnk - Znnk),
                     Fr * (Z - Zvnk) + Fnk * (Zvnk - Znnk) + Fr * (Znnk + 100) };
 
@@ -214,8 +213,7 @@ namespace ReserK
                     }
                     Qst = Int11(T, IK, UT, UQST);
                     Qr = Qd - Qst;
-                    Hwd = kwd * Qd * Math.Abs(Qd) + (decimal)Math.Pow((double)Qd, 2) /
-                        ((decimal)19.62 * (decimal)Math.Pow((double)Fd, 2));
+                    Hwd = kwd * Qd * Math.Abs(Qd) + Math.Pow(Qd, 2) / (19.62 * Math.Pow(Fd, 2));
                     Hwr = kwr * Qr * Math.Abs(Qr);
                     //Debug.WriteLine("Common: {0} {1} {2} {3} {4}", T, Z, Qd, Qst, Qr);
 
@@ -223,7 +221,7 @@ namespace ReserK
                     {
                         W += Math.Abs(Qr) * dt;
                         Z = Int11(W, 4, UW, UZ);
-                        Qd += (-(Z + Hwd + Hwr) * (decimal)9.81 * Fd / Ld) * dt;
+                        Qd += (-(Z + Hwd + Hwr) * 9.81 * Fd / Ld) * dt;
                         Qr = Qd - Qst;
                         Hd = Z + Hwr;
                         //Debug.WriteLine("Qr < 0: {0} {1} {2} {3} {4}",T, Z, Qd, Qst, Qr);
@@ -232,7 +230,7 @@ namespace ReserK
                     if (Z <= Zvod && Qr > 0)
                     {
                         Z += Qr / Fr * dt;
-                        Qd += (-(Z + Hwd + Hwr) * (decimal)9.81 * Fd / Ld) * dt;
+                        Qd += (-(Z + Hwd + Hwr) * 9.81 * Fd / Ld) * dt;
                         Qr = Qd - Qst;
                         Hd = Z + Hwr;
                         //Debug.WriteLine("Z <= Zwod: {0} {1} {2} {3} {4}", T, Z, Qd, Qst, Qr);
@@ -240,8 +238,8 @@ namespace ReserK
                     }
                     else if (Z > Zvod && Qr > 0)
                     {
-                        Z = Zvod + (decimal)Math.Pow((double)(Qr / (mvod * Bvod * (decimal)4.43)), 2 / 3);
-                        Qd += (-(Z + Hwd + Hwr) * (decimal)9.81 * Fd / Ld) * dt;
+                        Z = Zvod + Math.Pow((Qr / (mvod * Bvod * 4.43)), 2 / 3);
+                        Qd += (-(Z + Hwd + Hwr) * 9.81 * Fd / Ld) * dt;
                         Qr = Qd - Qst;
                         Hd = Z + Hwr;
                         Wwk += Qr * dt;
@@ -268,9 +266,9 @@ namespace ReserK
                 }
 
 
-                double Ttmp = Math.Ceiling(count * (double)dt);
+                double Ttmp = Math.Ceiling(count * dt);
                 //Debug.WriteLine("Ttmp= {0}", Ttmp);
-                if (Ttmp < (double)Tras)
+                if (Ttmp < Tras)
                 {
                     Ttmp = Math.Ceiling(Ttmp / 10) * 10;
                     //Debug.WriteLine("Ttmp= {0}", Ttmp);
@@ -310,9 +308,9 @@ namespace ReserK
 
                 for (int i = 0; i < count; i++)
                 {
-                    DataX[i] = (double)Table[i, 0];
-                    DataY1[i] = (double)Table[i, 6];
-                    DataY2[i] = (double)Table[i, 7];
+                    DataX[i] = Table[i, 0];
+                    DataY1[i] = Table[i, 6];
+                    DataY2[i] = Table[i, 7];
                 }
                 BuildChart_2lines(formsPlot_L, DataX, DataY1, DataY2,
                     "Уровень в УР, Z", "Давление в деривации, Нд", 2, 0,
@@ -321,8 +319,8 @@ namespace ReserK
 
                 for (int i = 0; i < count; i++)
                 {
-                    DataY1[i] = (double)Table[i, 2];
-                    DataY2[i] = (double)Table[i, 1];
+                    DataY1[i] = Table[i, 2];
+                    DataY2[i] = Table[i, 1];
                 }
                 BuildChart_2lines(formsPlot_Q, DataX, DataY1, DataY2,
                     "Расход деривации, Qд", "Расход турбинных водоводов, Qт", 2, 0,
@@ -365,17 +363,15 @@ namespace ReserK
             chartName.Refresh();
         }
 
-
-
-        private decimal GetDecimal(string str, decimal defaultValue)
+        private double GetDouble(string str, double defaultValue)
         {
-            decimal result;
+            double result;
             //Try parsing in the current culture
-            if (!decimal.TryParse(str, NumberStyles.Any, CultureInfo.CurrentCulture, out result) &&
+            if (!double.TryParse(str, NumberStyles.Any, CultureInfo.CurrentCulture, out result) &&
                 //Then try in US english
-                !decimal.TryParse(str, NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out result) &&
+                !double.TryParse(str, NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out result) &&
                 //Then in neutral language
-                !decimal.TryParse(str, NumberStyles.Any, CultureInfo.InvariantCulture, out result))
+                !double.TryParse(str, NumberStyles.Any, CultureInfo.InvariantCulture, out result))
             {
                 result = defaultValue;
                 throw new ArgumentNullException();
@@ -392,9 +388,9 @@ namespace ReserK
             return;
         }
 
-        private decimal Int11(decimal D, int N, decimal[] X, decimal[] Y)
+        private double Int11(double D, int N, double[] X, double[] Y)
         {
-            decimal V = -1;
+            double V = -1;
             int i;
             for (i = 1; i < N; i++)
             {
@@ -444,7 +440,6 @@ namespace ReserK
                 block4.Add(Znnkt.Text);
                 block4.Add(Fnkt.Text);
 
-
                 for (int i = 0; i < 3; i++)
                 {
                     block5.Add((string)dataGridView_discharge.Rows[0].Cells[i].Value);
@@ -480,7 +475,7 @@ namespace ReserK
 
                 using (StreamReader reader = new StreamReader(filename))
                 {
-                    string line;
+                    string? line;
                     while ((line = reader.ReadLine()) != null)
                     {
                         List<string> row = line.Split(';').ToList();
@@ -561,7 +556,7 @@ namespace ReserK
                         List<string> list = new List<string>();
                         for (int i = 0; i < 9; i++)
                         {
-                            decimal tmp;
+                            double tmp;
                             tmp = Table[j, i];
                             //Debug.WriteLine("{0}, {1}, {2}", j, i, tmp);
                             list.Add(tmp.ToString());
