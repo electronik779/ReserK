@@ -34,9 +34,9 @@ namespace ReserK
 
             dataGridView_discharge.DataSource = discharge;
 
-            for (int i = 0; i < dataGridView_discharge.Columns.Count; i++)
+            for (int i = 0; i < dataGridView_discharge.ColumnCount; i++)
             {
-                dataGridView_discharge.Columns[i].Width = 60;
+                dataGridView_discharge.Columns[i].Width = 55;
             }
 
             OpenData.Filter = "CSV файлы (*.csv)|*.csv";
