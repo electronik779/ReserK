@@ -347,9 +347,13 @@ namespace ReserK
             chartName.Plot.Axes.SetLimitsY(minY, maxY);
             chartName.Plot.Axes.Left.Label.Text = axisY_Name;
             chartName.Plot.Axes.Left.Label.Bold = false;
+            chartName.Plot.Axes.Left.Label.FontSize = 14;
             chartName.Plot.Axes.Bottom.Label.Text = axisX_Name;
             chartName.Plot.Axes.Bottom.Label.Bold = false;
+            chartName.Plot.Axes.Bottom.Label.FontSize = 14;
             chartName.Plot.Legend.BackgroundColor = semitransparent;
+            chartName.Plot.Legend.FontName = "Segoe UI";
+            chartName.Plot.Legend.FontSize = 12;
             chartName.Plot.ShowLegend(ScottPlot.Alignment.LowerRight, ScottPlot.Orientation.Vertical);
 
             var line1 = chartName.Plot.Add.Scatter(dataX, dataY1);
