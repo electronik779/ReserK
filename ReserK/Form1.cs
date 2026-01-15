@@ -34,10 +34,20 @@ namespace ReserK
 
             dataGridView_discharge.DataSource = discharge;
 
-            for (int i = 0; i < dataGridView_discharge.ColumnCount; i++)
+            int dgvWidth = dataGridView_discharge.Width;
+            int dgvHeight = dataGridView_discharge.Height;
+            int cellWidth = (dgvWidth / 3) - 1;
+            int cellHeight = (dgvHeight / 2) - 2;
+            dataGridView_discharge.Width = (cellWidth * 3) + 3;
+            dataGridView_discharge.Height = (cellHeight * 2) + 3;
+            //Debug.WriteLine("W= {0}, H= {1}, cW= {2}, cH= {3}",
+            //dgvWidth, dgvHeight, colWidth, colHeight);
+
+            foreach (DataGridViewColumn col in dataGridView_discharge.Columns)
             {
-                dataGridView_discharge.Columns[i].Width = 55;
+                col.Width = cellWidth;
             }
+            dataGridView_discharge.RowTemplate.Height = cellHeight;
 
             OpenData.Filter = "CSV файлы (*.csv)|*.csv";
 
